@@ -1,7 +1,7 @@
 import pymysql
 import json
 from flask import Flask, request, jsonify
-
+#mudei o nome do arquivo
 app = Flask(__name__)
 
 def db_connection():
