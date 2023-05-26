@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        BRANCH='Release'
-    }
     stages {
         stage('step1') {
             steps {
