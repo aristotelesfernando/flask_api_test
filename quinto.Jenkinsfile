@@ -5,6 +5,9 @@ pipeline {
     }
     stages {
         stage('step1') {
+            environment {
+                OUTRO = 'variavel'
+            }
             steps {
                 echo 'script 1 - step 1'
                 sh 'printenv'
