@@ -5,19 +5,26 @@ pipeline {
     }
     stages {
         stage('step1') {
-            environment {
-                OUTRO = 'variavel'
-            }
             steps {
                 echo 'script 1 - step 1'
                 sh 'printenv'
             }            
         }
         stage('step2') {
+            when {
+                 expression { BRANCH ==~ /(Master|Hotfix)/ }
+            }
             steps {
                 echo 'script 1 - step 2'
-                sh 'printenv'
             }
         }    
+        stage('step3') {
+            when {
+                 expression { BRANCH ==~ /(Release)/ }
+            }            
+            steps {
+                echo 'script 1 - step 3'
+            }
+        }           
     }
 }
